@@ -1,5 +1,9 @@
 import { createRoot } from "react-dom/client"
 
+import { Button } from "./shared/components/ui/button"
+
 createRoot(document.getElementById("root")!).render(
-	<main className="text-xl text-red-400">Hello World</main>
+	<main>
+		<Button>Hello World</Button>
+	</main>
 )
