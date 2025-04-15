@@ -1,9 +1,9 @@
 import { createRoot } from "react-dom/client"
 
-import { Button } from "./shared/components/ui/button"
+import { Constructor } from "./modules/constructor"
 
 createRoot(document.getElementById("root")!).render(
 	<main>
-		<Button>Hello World</Button>
+		<Constructor options={{}} />
 	</main>
 )
