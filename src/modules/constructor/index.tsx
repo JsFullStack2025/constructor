@@ -1,17 +1,22 @@
-import { Header } from "@/widgets/header"
+import { TopBar } from "@/widgets/top-bar"
+import { ScreenWidthOption } from "@/widgets/top-bar/domain/types"
 
 import { defaultConstructorOptions } from "./context/constructor-options.context"
-import { ConstructorOptions } from "./domain/types"
+import { Project } from "./domain/types"
 import { ConstructorProvider } from "./providers/constructor.provider"
 
 type Props = {
-	options?: ConstructorOptions
+	screen?: ScreenWidthOption[]
+	onSave: (data: Project) => void
 }
 
-export function Constructor({ options = defaultConstructorOptions }: Props) {
+export function Constructor({
+	screen = defaultConstructorOptions.screen,
+	onSave = defaultConstructorOptions.onSave
+}: Props) {
 	return (
-		<ConstructorProvider options={options}>
-			<Header />
+		<ConstructorProvider screen={screen} onSave={onSave}>
+			<TopBar />
 			<div>Constructor</div>
 		</ConstructorProvider>
 	)

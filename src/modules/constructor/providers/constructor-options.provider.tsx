@@ -1,20 +1,24 @@
+import { ScreenWidthOption } from "@/widgets/top-bar/domain/types"
+
 import {
 	ConstructorOptionsContext,
 	defaultConstructorOptions
 } from "../context/constructor-options.context"
-import { ConstructorOptions } from "../domain/types"
+import { Project } from "../domain/types"
+
+type Props = {
+	screen?: ScreenWidthOption[]
+	onSave: (data: Project) => void
+	children: React.ReactNode
+}
 
 export function ConstructorOptionsProvider({
-	options = defaultConstructorOptions,
+	screen = defaultConstructorOptions.screen,
+	onSave = defaultConstructorOptions.onSave,
 	children
-}: {
-	options?: ConstructorOptions
-	children: React.ReactNode
-}) {
+}: Props) {
 	return (
-		<ConstructorOptionsContext.Provider
-			value={{ ...defaultConstructorOptions, ...options }}
-		>
+		<ConstructorOptionsContext.Provider value={{ screen, onSave }}>
 			{children}
 		</ConstructorOptionsContext.Provider>
 	)

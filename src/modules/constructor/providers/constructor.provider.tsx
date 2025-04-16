@@ -1,18 +1,20 @@
-import { ConstructorOptions } from "../domain/types"
+import { ScreenWidthOption } from "@/widgets/top-bar/domain/types"
+
+import { Project } from "../domain/types"
 
 import { ConstructorOptionsProvider } from "./constructor-options.provider"
 import { ConstructorTempProvider } from "./constructor-temp.provider"
 
-export function ConstructorProvider({
-	children,
-	options
-}: {
+type Props = {
 	children: React.ReactNode
-	options?: ConstructorOptions
-}) {
+	screen?: ScreenWidthOption[]
+	onSave: (data: Project) => void
+}
+
+export function ConstructorProvider({ children, screen, onSave }: Props) {
 	return (
 		<ConstructorTempProvider>
-			<ConstructorOptionsProvider options={options}>
+			<ConstructorOptionsProvider screen={screen} onSave={onSave}>
 				{children}
 			</ConstructorOptionsProvider>
 		</ConstructorTempProvider>
