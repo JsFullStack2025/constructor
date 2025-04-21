@@ -1,7 +1,16 @@
 import { createContext } from "react"
 
+export interface ConstructorElement {
+	id: string
+	x: number
+	y: number
+	w: number
+	h: number
+	type: string
+}
+
 export interface ConstructorTemp {
-	elements: never[]
+	elements: ConstructorElement[]
 	selectedWidth?: number
 }
 
