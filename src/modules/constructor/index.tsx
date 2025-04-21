@@ -1,3 +1,4 @@
+import { AppSidebar } from "@/widgets/sidebar"
 import { TopBar } from "@/widgets/top-bar"
 import { ScreenWidthOption } from "@/widgets/top-bar/domain/types"
 
@@ -17,7 +18,10 @@ export function Constructor({
 	return (
 		<ConstructorProvider screen={screen} onSave={onSave}>
 			<TopBar />
-			<div>Constructor</div>
+			<div>
+				<AppSidebar />
+				Constructor
+			</div>
 		</ConstructorProvider>
 	)
 }
